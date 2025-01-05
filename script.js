@@ -1,9 +1,20 @@
 const maltese = document.getElementById('maltese');
 const gameContainer = document.getElementById('game-container');
 const scoreDisplay = document.getElementById('score');
+const startBtn = document.getElementById('start-btn');
 
 let isJumping = false;
 let score = 0;
+let gameStarted = false;
+
+// Función para iniciar el juego
+function startGame() {
+  gameStarted = true;
+  startBtn.style.display = 'none'; // Oculta el botón de start
+  scoreDisplay.style.display = 'block'; // Muestra el marcador
+  document.addEventListener('keydown', jump);
+  createSpider();
+}
 
 // Movimiento del bichón maltés
 function jump() {
@@ -34,6 +45,8 @@ function fall() {
 
 // Crear arañas enemigas
 function createSpider() {
+  if (!gameStarted) return; // No crear arañas si el juego no ha empezado
+
   const spider = document.createElement('div');
   spider.classList.add('spider');
   spider.style.top = `${Math.random() * (window.innerHeight - 50)}px`;
@@ -65,6 +78,5 @@ function createSpider() {
   setTimeout(createSpider, 3000);
 }
 
-// Iniciar el juego
-document.addEventListener('keydown', jump);
-createSpider();
+// Añadir evento al botón de start
+startBtn.addEventListener('click', startGame);
