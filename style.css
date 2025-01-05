@@ -23,9 +23,9 @@ body {
   position: absolute;
   width: 50px;
   height: 50px;
-  background: url('https://example.com/bichon-maltese.png') no-repeat center;
+  background: url('https://via.placeholder.com/50x50/fff/000?text=M') no-repeat center;
   background-size: cover;
-  bottom: 200px;
+  bottom: 100px;
   left: 100px;
   z-index: 10;
 }
@@ -34,10 +34,9 @@ body {
   position: absolute;
   width: 50px;
   height: 50px;
-  background: url('https://example.com/spider.png') no-repeat center;
+  background: url('https://via.placeholder.com/50x50/000/fff?text=S') no-repeat center;
   background-size: cover;
   top: 0;
-  animation: fly 5s linear infinite;
 }
 
 @keyframes fly {
@@ -69,5 +68,10 @@ body {
 }
 
 #score {
-  display: none; /* El marcador se muestra solo cuando empieza el juego */
+  display: none;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+  color: black;
 }
